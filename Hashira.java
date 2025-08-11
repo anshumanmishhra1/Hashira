@@ -5,7 +5,7 @@ import java.util.*;
 public class Hashira {
     public static void main(String[] args) {
         try {
-            String fileName = "input.json"; // change for second test case
+            String fileName = "input1.json"; 
 
             BufferedReader br = new BufferedReader(new FileReader(fileName));
             String line;
@@ -15,15 +15,15 @@ public class Hashira {
             while ((line = br.readLine()) != null) {
                 line = line.trim();
 
-                // Read n
+                
                 if (line.startsWith("\"n\"")) {
                     n = Integer.parseInt(line.split(":")[1].replace(",", "").trim());
                 }
-                // Read k
+                
                 else if (line.startsWith("\"k\"")) {
                     k = Integer.parseInt(line.split(":")[1].replace(",", "").trim());
                 }
-                // Read a root (x, base, value)
+                // yaha read karenge root ko (x, base, value)
                 else if (line.matches("^\"\\d+\".*\\{")) {
                     int x = Integer.parseInt(line.substring(1, line.indexOf("\"", 1)));
 
@@ -38,7 +38,7 @@ public class Hashira {
 
                     points.add(new Point(x, yDecoded));
 
-                    // Skip closing brace
+                    // Skip karenge closing brace ko
                     br.readLine();
                 }
             }
@@ -80,4 +80,11 @@ public class Hashira {
     }
 }
 
-
+class Point {
+    int x;
+    BigInteger y;
+    Point(int x, BigInteger y) {
+        this.x = x;
+        this.y = y;
+    }
+}
